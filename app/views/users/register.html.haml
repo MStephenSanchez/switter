@@ -1,0 +1,38 @@
+%div#register_block
+  %strong REGISTER
+  = form_for :register, url: users_path do |f|
+    %table
+      %tr
+        %th
+          = f.label :Lastname
+        %th
+          = f.label :'First name'
+        %th
+          = f.label :Middlename
+      %tr
+        %th
+          = f.text_field :lastname
+        %th
+          = f.text_field :firstname
+        %th
+          = f.text_field :middlename
+    %p
+      = f.label :username
+      %br/
+      = f.text_field :username
+    %p
+      = f.label :password
+      %br/
+      = f.password_field :password
+      %p
+        = f.label :'password confirmation'
+        %br/
+        = f.password_field :password_confirmation
+    %p
+      = f.label :email
+      %br/
+      = f.email_field :email
+    %p
+      = f.button('Register')
+
+= link_to 'Login', controller: 'sessions', action: 'index'
