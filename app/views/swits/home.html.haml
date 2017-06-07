@@ -1,6 +1,19 @@
-%h1 Swits#index
-%p Find me in app/views/swits/home.html.haml
-%h1 YOU ARE
-= logged_in?
-
+= current_user[:username]
 = link_to 'Logout', sessions_path, method: :delete
+
+%h1 Create Swit
+
+= form_for :swit_form, url: swits_path, action:'home' do |f|
+  = f.label :'Create Swit'
+  %br
+  = f.text_field :message
+  %br
+  = f.button('Swit')
+%br
+
+%h1 Home Swits
+- @swits.each do |swit|
+  = swit.username
+  \:
+  = swit.message
+  %br
