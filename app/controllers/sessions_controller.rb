@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :require_login, :only => [:index, :create]
   def index
       if logged_in?
         redirect_to  action: 'home', controller: 'swits'

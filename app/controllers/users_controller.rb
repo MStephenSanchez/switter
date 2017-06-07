@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  skip_before_action :require_login, :only => [:register, :create]
   def register
     if logged_in?
       redirect_to  action: 'index', controller: 'sessions'
