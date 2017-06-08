@@ -1,0 +1,4 @@
+%h1 SWITTER
+- if logged_in?
+  = link_to current_user[:username], user_path(current_user.id)
+  = link_to 'Logout', sessions_path, method: :delete

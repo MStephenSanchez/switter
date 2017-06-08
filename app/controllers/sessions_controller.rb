@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:session][:username])
+    user = User.find_by(login_params)
     if user && user.authenticate(params[:session][:password_digest])
       log_in user
       redirect_to  :swits
@@ -20,5 +20,10 @@ class SessionsController < ApplicationController
       render :index
     end
   end
+
+  private
+    def login_params
+      params.require(:session).permit(:username)
+    end
 
 end

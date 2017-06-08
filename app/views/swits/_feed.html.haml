@@ -1,0 +1,6 @@
+
+- @swits.each do |swit|
+  = link_to swit.user.username, user_path(swit.user.id)
+  \:
+  = swit.message
+  %br

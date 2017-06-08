@@ -1,5 +1,3 @@
-= link_to current_user[:username], user_path(current_user.id)
-= link_to 'Logout', sessions_path, method: :delete
 
 %h1 Create Swit
 
@@ -12,8 +10,4 @@
 %br
 
 %h1 Home Swits
-- @swits.each do |swit|
-  = link_to swit.user.username, user_path(swit.user.id)
-  \:
-  = swit.message
-  %br
+= render 'feed'
