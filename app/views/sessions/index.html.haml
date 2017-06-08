@@ -1,6 +1,6 @@
 %div#login_block
   %strong LOGIN
-  = form_for(:session, url: sessions_path) do |f|
+  = form_for :session, url: sessions_path do |f|
     %p
       = f.label :username
       %br/
@@ -10,6 +10,6 @@
       %br/
       = f.password_field :password_digest
     %p
-      = f.button('Login')
+      = f.button 'Login' 
 
-= link_to 'Register', controller: 'users', action: 'register'
+= link_to 'Register', users_register_path

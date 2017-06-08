@@ -8,7 +8,7 @@ class SwitsController < ApplicationController
 
     @swit.save
     @swits = Swit.all
-    render 'home'
+    render :home
   end
 
   private

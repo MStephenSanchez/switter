@@ -33,6 +33,6 @@
       %br/
       = f.email_field :email
     %p
-      = f.button('Register')
+      = f.button 'Register'
 
-= link_to 'Login', controller: 'sessions', action: 'index'
+= link_to 'Login', sessions_path
