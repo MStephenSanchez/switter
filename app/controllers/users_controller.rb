@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to  action: 'index', controller: 'sessions' #change this to redirect to auto login
+    @swits = Swit.where("user_id = ?", params[:id])
+    @user = User.find(params[:id])
   end
 
   private

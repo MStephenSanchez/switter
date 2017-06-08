@@ -1,4 +1,4 @@
-= current_user[:username]
+= link_to current_user[:username], user_path(current_user.id), method: :get
 = link_to 'Logout', sessions_path, method: :delete
 
 %h1 Create Swit
@@ -13,7 +13,7 @@
 
 %h1 Home Swits
 - @swits.each do |swit|
-  = swit.username
+  = link_to swit.user.username, user_path(swit.user.id), method: :get
   \:
   = swit.message
   %br

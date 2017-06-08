@@ -13,12 +13,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:session][:username])
-    if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
+    if user && user.authenticate(params[:session][:password_digest])
       log_in user
       redirect_to  action: 'home', controller: 'swits'
     else
-      # Create an error message.
       render 'index'
     end
   end

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
     def require_login
       unless logged_in?
-        redirect_to action: 'index', controller: 'sessions'
+        redirect_to action: 'index', controller: 'sessions' 
       end
     end
 end

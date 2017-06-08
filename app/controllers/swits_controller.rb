@@ -1,13 +1,13 @@
 class SwitsController < ApplicationController
   def home
-    @swits = Swit.joins(:user).select('swits.*,users.username')
+    @swits = Swit.all
   end
 
   def create
     @swit = Swit.new(swit_params.merge(:user_id => current_user.id))
 
     @swit.save
-    @swits = Swit.joins(:user).select('swits.*,users.username,users.id as user_id')
+    @swits = Swit.all
     render 'home'
   end
 

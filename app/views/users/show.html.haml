@@ -1,0 +1,15 @@
+= @user.username
+= link_to 'Logout', sessions_path, method: :delete
+
+
+
+%h1
+  = @user.username
+  's Swits
+- @swits.each do |swit|
+  = swit.user.username
+  \:
+  = swit.message
+  %br
+
+=link_to 'back', :back
